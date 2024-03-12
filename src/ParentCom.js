@@ -3,14 +3,15 @@ import Box1 from "./ChildCom";
 import Box2 from "./ChildCom2";
 import CompleteData from "./CompleteData";
 import { DataProvider } from "./Context";
+import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
 
 const ParentCom = () => {
   const { show_data, enter_func, option_data, option_box2, option_box3, enter, handle_box2_d1, handle_box3_d1 } = DataProvider();
 
-  console.log(handle_box3_d1,"handle_box3_d1")
+  console.log(show_data,"show data..........")
 
   const length=show_data.length+ handle_box2_d1.length + handle_box3_d1.length;
-
+ 
 
   return (
     <div className="bg-gray-100">
@@ -59,7 +60,7 @@ const ParentCom = () => {
                       className="border shadow bg-gray-400"
                     >
                       <option value="Add data">{enter.add_data}</option>
-                      <option value="box1">{enter.box1}</option>
+                      {/* <option value="box1">{enter.box1}</option> */}
                       <option value="box2">{enter.box2}</option>
                       <option value="box3">{enter.box3}</option>
                     </select>
@@ -98,7 +99,7 @@ const ParentCom = () => {
                       className="border shadow bg-gray-400"
                     >
                       <option value="Add data">{enter.add_data}</option>
-                      <option value="box1">{enter.box1}</option>
+                      {/* <option value="box1">{enter.box1}</option> */}
                       <option value="box2">{enter.box2}</option>
                       <option value="box3">{enter.box3}</option>
                     </select>
@@ -137,7 +138,7 @@ const ParentCom = () => {
                       className="border shadow bg-gray-400"
                     >
                       <option value="Add data">{enter.add_data}</option>
-                      <option value="box1">{enter.box1}</option>
+                      {/* <option value="box1">{enter.box1}</option> */}
                       <option value="box2">{enter.box2}</option>
                       <option value="box3">{enter.box3}</option>
                     </select>

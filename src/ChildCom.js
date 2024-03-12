@@ -42,7 +42,7 @@ const Box1 = ({value}) => {
                           <select name="" id="" className='bg-gray-400' onChange={(e)=>handeled_item_box2(currentItem, index, e.target.value)} >
                             <option value="Add data">{click.add_data}</option>
                             <option value="box1">{click.option1}</option>
-                            <option value="box2">{click.option2}</option>
+                            {/* <option value="box2">{click.option2}</option> */}
                             <option value="box3">{click.option3}</option>
                           </select>
 

@@ -43,7 +43,8 @@ const Context = ({ children }) => {
       type: "BOX2_DATA",
       payload: currentItem,
       payload2: option,
-      // payload3:{id,code, label, visitFee}
+      payload3:result,
+      
     
     });
   };
@@ -64,7 +65,7 @@ const Context = ({ children }) => {
   }
   useEffect(() => {
     show_all_data();
-  },[]);
+  },[result]);
 
   return (
     <div>

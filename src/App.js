@@ -6,8 +6,7 @@ import Context from './Context'
 
 const App = () => {
   return (
-
-    <div>
+<div>
     <Context>
 <ParentCom />
 </Context>
