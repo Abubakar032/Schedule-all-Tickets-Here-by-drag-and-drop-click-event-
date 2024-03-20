@@ -19,7 +19,7 @@ const CompleteData = ({value1, value2}) => {
             return <div className='bg-white shadow shadow-zinc-400 rounded-2xl p-2 mx-2 mt-3' key={index}>
             <div className='flex justify-between'>
             <h1 className='font-bold'>{currentItem.label}</h1>
-            <h1>{currentItem.id}</h1>
+            <h1>{currentItem.ticketId}</h1>
             </div>
             <p><span className='font-bold'>visitFee</span>: {currentItem.visitFee}</p>
             <p><span className='font-bold'>code: </span> {currentItem.code}</p>
@@ -32,7 +32,7 @@ const CompleteData = ({value1, value2}) => {
             return <div className='bg-white shadow shadow-zinc-400 rounded-2xl p-2 mx-2 mt-3' key={index}>
             <div className='flex justify-between'>
             <h1 className='font-bold'>{currentItem.label}</h1>
-            <h1>{currentItem.id}</h1>
+            <h1>{currentItem.ticketId}</h1>
             </div>
             <p><span className='font-bold'>visitFee</span>: {currentItem.visitFee}</p>
             <p><span className='font-bold'>code: </span> {currentItem.code}</p>
@@ -46,7 +46,7 @@ const CompleteData = ({value1, value2}) => {
             return <div className='bg-white shadow shadow-zinc-400 rounded-2xl p-2 mx-2 mt-3' key={index}>
             <div className='flex justify-between'>
             <h1 className='font-bold'>{currentItem.label}</h1>
-            <h1>{currentItem.id}</h1>
+            <h1>{currentItem.ticketId}</h1>
             </div>
             <p><span className='font-bold'>visitFee</span>: {currentItem.visitFee}</p>
             <p><span className='font-bold'>code: </span> {currentItem.code}</p>
@@ -59,7 +59,7 @@ const CompleteData = ({value1, value2}) => {
             return <div className='bg-white shadow shadow-zinc-400 rounded-2xl p-2 mx-2 mt-3' key={index}>
             <div className='flex justify-between'>
             <h1 className='font-bold'>{currentItem.label}</h1>
-            <h1>{currentItem.id}</h1>
+            <h1>{currentItem.ticketId}</h1>
             </div>
             <p><span className='font-bold'>visitFee</span>: {currentItem.visitFee}</p>
             <p><span className='font-bold'>code: </span> {currentItem.code}</p>
@@ -72,7 +72,7 @@ const CompleteData = ({value1, value2}) => {
             return <div className='bg-white shadow shadow-zinc-400 rounded-2xl p-2 mx-2 mt-3' key={index}>
             <div className='flex justify-between'>
             <h1 className='font-bold'>{currentItem.label}</h1>
-            <h1>{currentItem.id}</h1>
+            <h1>{currentItem.ticketId}</h1>
             </div>
             <p><span className='font-bold'>visitFee</span>: {currentItem.visitFee}</p>
             <p><span className='font-bold'>code: </span> {currentItem.code}</p>
@@ -85,7 +85,7 @@ const CompleteData = ({value1, value2}) => {
             return <div className='bg-white shadow shadow-zinc-400 rounded-2xl p-2 mx-2 mt-3' key={index}>
             <div className='flex justify-between'>
             <h1 className='font-bold'>{currentItem.label}</h1>
-            <h1>{currentItem.id}</h1>
+            <h1>{currentItem.ticketId}</h1>
             </div>
             <p><span className='font-bold'>visitFee</span>: {currentItem.visitFee}</p>
             <p><span className='font-bold'>code: </span> {currentItem.code}</p>

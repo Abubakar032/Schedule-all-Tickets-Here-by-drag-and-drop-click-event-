@@ -1,12 +1,11 @@
 export const Reducer=(state, action )=>{
+  
 
+  // ################action.type = action dsipatch##################
+  
 switch(action.type){
 
-    case "SHOW_ALL_DATA":
-        return{
-            ...state,
-            show_data:action.payload
-        }
+    
 
         case "ENTER":
             return {
@@ -15,13 +14,14 @@ switch(action.type){
             }
 
 
-            case "BOX2_DATA":
+            case "OPTION_DATA":
               let result =action.payload;
             
               const filter_data=state.show_data.filter((currentVal)=>{
                 return result!==currentVal;
                 
                }) 
+              //  ###########action.payload2 = option###############
                 if (action.payload2 === "box2") {
                   
                   return {
@@ -31,7 +31,7 @@ switch(action.type){
                     option_box2: [
                       ...state.option_box2,
                       {
-                        id: result.ticketId,
+                        ticketId: result.ticketId,
                         code: result.code,
                         visitFee: result.visitFee,
                         label: result.label,
@@ -49,7 +49,7 @@ switch(action.type){
                     option_box3: [
                       ...state.option_box3,
                       {
-                        id: result.ticketId,
+                        ticketId: result.ticketId,
                         code: result.code,
                         visitFee: result.visitFee,
                         label: result.label,
@@ -70,10 +70,11 @@ switch(action.type){
                       return {
                         ...state,
                         
-                        handle_box2_d1: [
+                        show_data: [
+                          ...state.show_data,
                           ...state.handle_box2_d1,
                           {
-                            id: result1.ticketId,
+                            ticketId: result1.ticketId,
                             code: result1.code,
                             visitFee: result1.visitFee,
                             label: result1.label,
@@ -88,10 +89,11 @@ switch(action.type){
                       return {
                         ...state,
                        
-                        handle_box2_d2: [
+                        option_box3: [
+                          ...state.option_box3,
                           ...state.handle_box2_d2,
                           {
-                            id: result1.ticketId,
+                            ticketId: result1.ticketId,
                             code: result1.code,
                             visitFee: result1.visitFee,
                             label: result1.label,
@@ -112,10 +114,11 @@ switch(action.type){
                     if (action.payload2 === "box1") {
                       return {
                         ...state,
-                        handle_box3_d1: [
+                        show_data: [
+                          ...state.show_data,
                           ...state.handle_box3_d1,
                           {
-                            id: result2.ticketId,
+                            ticketId: result2.ticketId,
                             code: result2.code,
                             visitFee: result2.visitFee,
                             label: result2.label,
@@ -128,10 +131,11 @@ switch(action.type){
                     if (action.payload2 === "box2") {
                       return {
                         ...state,
-                        handle_box3_d2: [
+                        option_box2: [
+                          ...state.option_box2, 
                           ...state.handle_box3_d2,
                           {
-                            id: result2.ticketId,
+                            ticketId: result2.ticketId,
                             code: result2.code,
                             visitFee: result2.visitFee,
                             label: result2.label,
@@ -142,6 +146,42 @@ switch(action.type){
                     }
                   
                     return state;
+
+
+                    case "HANDLE_DRAG":
+                      const { source, destination } = action.payload;
+                      if (!destination) return state;
+                    if (source.droppableId === destination.droppableId && source.index === destination.index) {
+                        return state;
+                      }
+                    
+                      const getItemAndSetter = (id) => {
+
+                        // ############id matlb scourec.droppableId && destination.droppableId##########
+                        
+                        switch (id) {
+                          case 'box1':
+                            return [state.show_data, (newList) => ({ ...state, show_data: newList })];
+                          case 'box2':
+                            return [state.option_box2, (newList) => ({ ...state, option_box2: newList })];
+                          case 'box3':
+                            return [state.option_box3, (newList) => ({ ...state, option_box3: newList })];
+                          default:
+                            return [];
+                        }
+                      };
+                    
+                      const [sourceList, setSourceList] = getItemAndSetter(source.droppableId);
+                      const [destinationList, setDestinationList] = getItemAndSetter(destination.droppableId);
+                      const [removed] = sourceList.splice(source.index, 1);
+                      destinationList.splice(destination.index, 0, removed);
+                    
+                      setSourceList([...sourceList]);
+                      setDestinationList([...destinationList]);
+                    
+                      return { ...state };
+                    
+
                   
               
 

@@ -4,32 +4,34 @@ import data from './Data';
 
 const createcontext = createContext();
 
+const result = data[0].tickets;
+console.log(result, "data.....");
+
 const initialState = {
-  show_data: [],
+  show_data: result,
   enter: {},
-  option_box2: [{id: 10, label: "abubakar", code: 85, visitFee: 2000}],
-  option_box3: [{id: 10, label: "abubakar", code: 85, visitFee: 2000 }],
+  option_box2: [{ticketId: 10, label: "Muhammad Abubakar", code: 85, visitFee: 2000},
+                {ticketId: 11, label: "Bilal", code: 95, visitFee: 5000}],
+  option_box3: [{ticketId: 20, label: "zain", code: 86, visitFee: 3000 }],
   handle_box2_d1:[],
   handle_box2_d2:[],
   handle_box3_d1:[],
   handle_box3_d2:[]
 };
 
+// ###########childer hamra parent  component ha ###########################
+
 const Context = ({ children }) => {
-  const result = data[0].tickets;
-  console.log(result, "data.....");
+
+
+//  ###############use reducer use #######################
+// ############3dispatch trigglr karta he action ko#################
 
   const [state, dispatch] = useReducer(Reducer, initialState);
 
-  console.log(state.box2, "box2 data.....");
-  console.log(state.box3, "box3 data.....");
 
-  const show_all_data = () => {
-    return dispatch({
-      type: "SHOW_ALL_DATA",
-      payload: result,
-    });
-  };
+  
+// ############# click to show the options ####################
 
   const enter_func = () => {
     return dispatch({
@@ -38,9 +40,11 @@ const Context = ({ children }) => {
     });
   };
 
+
+// #3#####show data box2 & box 3#####################
   const option_data = (currentItem, index, option) => {
     return dispatch({
-      type: "BOX2_DATA",
+      type: "OPTION_DATA",
       payload: currentItem,
       payload2: option,
       payload3:result,
@@ -48,6 +52,7 @@ const Context = ({ children }) => {
     
     });
   };
+
 
   const handeled_item_box2=(currentItem, index, option)=>{
     return dispatch({
@@ -63,18 +68,28 @@ const Context = ({ children }) => {
       payload2: option
     })
   }
-  useEffect(() => {
-    show_all_data();
-  },[result]);
+
+  const handleDrag=(results)=>{
+    return dispatch({
+      type:"HANDLE_DRAG",
+      payload:results
+    })
+  }
+
+
 
   return (
     <div>
-      <createcontext.Provider value={{ ...state, enter_func, option_data,handeled_item_box2, handeled_item_box3 }}>
+
+      <createcontext.Provider value={{ ...state, enter_func, option_data,handeled_item_box2, handeled_item_box3, handleDrag }}>
+      {/* ################# parent component############## */}
         {children}
       </createcontext.Provider>
     </div>
   );
 };
+
+// ####################ye ek cutom hook he jo humy context component sy state or fun extract karny me madad karta he######
 
 const DataProvider = () => {
   return useContext(createcontext);
