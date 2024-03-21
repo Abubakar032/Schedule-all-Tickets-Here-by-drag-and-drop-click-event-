@@ -21,7 +21,7 @@ const ParentCom = () => {
           <p className="text-green-500">Schedule all Tickets Here by drag and drop & click event </p>
           <DragDropContext onDragEnd={handleDrag}>
           <div className="mt-16 grid lg:grid-cols-4">
-            <div className="bg-white shadow-gray-500 rounded-2xl overflow-y-scroll shadow" style={{ height: "500px" }}>
+            <div className="bg-white shadow-gray-500 rounded-2xl mt-4 overflow-y-scroll shadow" style={{ height: "500px" }}>
               <div className="lg:flex justify-between mx-1 mt-1">
                 <div>
 
@@ -97,13 +97,13 @@ const ParentCom = () => {
 
             </div>
 
-            <div>
+            <div className="mt-4">
               <Box1  />
             </div>
-            <div>
+            <div className="mt-4" >
               <Box2  />
             </div>
-            <div>
+            <div className="mt-4">
               <CompleteData value1={option_box2} value2={option_box3} />
             </div>
           </div>
