@@ -104,7 +104,7 @@ const ParentCom = () => {
               <Box2  />
             </div>
             <div className="mt-4">
-              <CompleteData value1={option_box2} value2={option_box3} />
+              <CompleteData  />
             </div>
           </div>
           </DragDropContext>
